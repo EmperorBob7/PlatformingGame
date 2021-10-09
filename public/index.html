@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <title>Game</title>
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <canvas id="canvas" width="700px" height="700px"></canvas>
+    <h2 id="fps"></h2>
+    <div style="display:none;">
+      <label>X: </label><input type="number" id="xCoord"/>
+      <label>Y: </label><input type="number" id="yCoord"/>
+      <button id="updateCoords">
+        Update Coords
+      </button>
+    </div>
+    <script src="./scripts/scripts.js" type="module"></script>
+  </body>
+</html>
