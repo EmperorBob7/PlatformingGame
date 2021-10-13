@@ -4,6 +4,8 @@ import items from "./round1/items.js";
 import {keys} from "./Keys.js";
 import {canvas, ctx} from "./ctx.js";
 
+const c2 = document.getElementById("canvas");
+const ctx2 = c2.getContext("2d");
 const player = new Character(0, 400, 20, 20, ctx, items);
 
 let fps = Date.now() / 1000;
@@ -13,6 +15,7 @@ function draw() {
   for (const [key, value] of Object.entries(items)) {
     value.update();
   }
+  ctx2.drawImage(canvas, 0, 0);
   requestAnimationFrame(draw);
   fpsView();
 }
