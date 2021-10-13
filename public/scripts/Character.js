@@ -31,11 +31,14 @@ export default class Character {
     }
     if (ground == undefined) {
       this.velocityY += this.gravity;
-    } else {
+    } else if(this.velocityY != 0) {
       this.velocityY = 0;
       this.y = ground.y - this.height;
+    } else {
+      ground.action(this);
     }
     if (ceiling) {
+      this.y = ceiling.y + ceiling.height;
       this.velocityY = 0.1;
     }
     if (map[keys.RIGHT] && leftWall == undefined) {
@@ -50,9 +53,9 @@ export default class Character {
     if (map[keys.UP] && ground != undefined) {
       this.velocityY = -10;
     }
+    this.draw();
     this.y += this.velocityY;
     this.velocityX = 0;
-    this.draw();
   }
   draw() {
     this.ctx.fillStyle = "#000";
