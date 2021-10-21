@@ -9,29 +9,37 @@ body {
   display: grid;
   justify-content: center;
   text-align: center;
+  align-items:center;
   grid-template:"canvas"
-    "fps"
+    "console"
     "inputs";
   color: #ddd;
+  height: 100vh;
 }
 canvas {
 	background-color:#0088BB;
   border:2px solid #ccc;
   margin: 10px;
-  grid-area:"canvas";
-  width: 80vh;
-  height: 80vh;
+  grid-area:canvas;
 }
 h2 {
   position: absolute;
+  left: 0;
   bottom: 0;
-  grid-area:"fps";
 }
 div {
-  grid-area:"inputs";
+  grid-area:inputs;
 }
 button {
   background-color: white;
   border: 1px solid black;
   padding: 2px;
+}
+#console {
+  font-size: 150%;
+  background-color:#444455;
+  width: 700px;
+  grid-area:console;
+  padding: 5px;
+  box-sizing: border-box;
 }

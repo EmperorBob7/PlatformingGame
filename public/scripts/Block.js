@@ -12,7 +12,7 @@ export default class Block {
     this.draw();
   }
   
-  action() {
+  action(player) {
     //Override this method
   }
   
@@ -23,8 +23,8 @@ export default class Block {
 
   collidesTop(other, speed) {
     return (
-      other.x + other.width > this.x &&
-      other.x < this.x + this.width &&
+      other.x + other.width >= this.x &&
+      other.x <= this.x + this.width &&
       Math.abs(other.y + other.height - this.y) <= speed
     );
   }
