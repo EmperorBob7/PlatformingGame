@@ -1,29 +1,19 @@
 import Block from "./Block.js";
 
 export class ClingBlock extends Block {
-  update() {
-    if (Math.abs(this.yGoal - this.y) <= Math.abs(this.velocityY)) {
-      this.velocityY *= -1;
+  action(player, side) {
+    if(side == "left" || side == "right") {
+      player.velocityY = 0;
+      return true;
     }
-    if (this.y == this.originalY && this.moving) {
-      this.moving = false;
-      this.velocityY *= -1;
-    }
-    if (this.moving) {
-      if (this.collidesTop(this.object, this.object.velocityY)) {
-        this.object.y += this.velocityY;
-      }
-      this.y += this.velocityY;
-    }
-    this.draw();
+    return false;
   }
-
-  action(player) {
-    if (!this.moving) {
-      this.y += this.velocityY;
-      this.object = player;
-      this.object.y += this.velocityY;
-    }
-    this.moving = true;
+  
+  collidesLeft(other, speed) {
+    return (other.y >= this.y && other.y <= this.y + this.height || other.y + other.height > this.y && other.y < this.y + this.height) && Math.abs(other.x - this.x - this.width) <= speed;
+  }
+  
+  collidesRight(other, speed) {
+    return (other.y >= this.y && other.y <= this.y + this.height || other.y + other.height > this.y && other.y < this.y + this.height) && Math.abs(other.x + other.width - this.x) <= speed;
   }
 }

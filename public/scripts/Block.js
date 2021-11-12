@@ -7,15 +7,15 @@ export default class Block {
     this.color = color;
     this.ctx = ctx;
   }
-  
+
   update() {
     this.draw();
   }
-  
-  action(player) {
+
+  action(player, side) {
     //Override this method
   }
-  
+
   draw() {
     this.ctx.fillStyle = this.color;
     this.ctx.fillRect(this.x, this.y, this.width, this.height);
@@ -31,17 +31,25 @@ export default class Block {
 
   collidesBottom(other, speed) {
     return (
-      other.x + other.width > this.x &&
-      other.x < this.x + this.width &&
-      Math.abs(other.y - this.y - this.height) <= Math.abs(speed)
+      other.x + other.width >= this.x &&
+      other.x <= this.x + this.width &&
+      Math.abs(other.y - this.y - this.height) <= speed * -1
     );
   }
 
   collidesLeft(other, speed) {
-    return (other.y >= this.y && other.y <= this.y + this.height || other.y + other.height > this.y && other.y < this.y + this.height) && Math.abs(other.x - this.x - this.width) <= speed;
+    return (
+      other.y + other.height > this.y &&
+      other.y < this.y + this.height &&
+      Math.abs(other.x - this.x - this.width) < speed
+    );
   }
-  
+
   collidesRight(other, speed) {
-    return (other.y >= this.y && other.y <= this.y + this.height || other.y + other.height > this.y && other.y < this.y + this.height) && Math.abs(other.x + other.width - this.x) <= speed;
+    return (
+      other.y + other.height > this.y &&
+      other.y < this.y + this.height &&
+      Math.abs(other.x + other.width - this.x) < speed
+    );
   }
 }
