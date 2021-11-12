@@ -15,5 +15,5 @@ items1.items["block2"] = new Block(300, 450, 75, 25, colors.block, ctx);
 items1.items["block3"] = new Block(400, 400, 50, 25, colors.block, ctx);
 items1.items["finish"] = new EndBlock(500, 350, 100, 15, colors.finish, ctx);
 items1.x = 20;
-items1.y = 400;
+items1.y = 100;
 export {items1};

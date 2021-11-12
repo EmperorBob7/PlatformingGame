@@ -25,7 +25,9 @@ export class HorizontalSlideBlock extends Block {
     this.draw();
   }
 
-  action(player) {
+  action(player, side) {
+    if(side != "top")
+      return;
     if (!this.moving) {
       this.x += this.velocityX;
       this.object = player;

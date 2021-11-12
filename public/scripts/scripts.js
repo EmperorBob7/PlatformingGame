@@ -15,12 +15,16 @@ let now;
 let then = Date.now();
 let interval = 1000 / framesPerSecond;
 let delta;
+let frameCount = 0;
 
 function draw() {
+  if(round.timer)
+    fpsView();
   requestAnimationFrame(draw);
   now = Date.now();
   delta = now - then;
   if (delta > interval) {
+    frameCount++;
     then = now - (delta % interval);
     
     if (player.y > canvas.height) {
@@ -28,21 +32,16 @@ function draw() {
     }
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx2.clearRect(0, 0, c2.width, c2.height);
-    player.update();
     for (const [key, value] of Object.entries(player.items)) {
-      //console.log(value);
       value.update();
     }
+    player.update();
     ctx2.drawImage(canvas, 0, 0, c2.width, c2.height);
-    fpsView();
   }
 }
 
 function fpsView() {
-  let d = Date.now() / 1000;
-  let x = Date.now() / 1000 - fps;
-  fps = d;
-  document.getElementById("fps").innerText = (1 / x).toFixed(0);
+  document.getElementById("fps").innerText = frameCount;
 }
 
 requestAnimationFrame(draw);
@@ -52,3 +51,14 @@ document.getElementById("updateCoords").onclick = () => {
   player.x = x;
   player.y = y;
 };
+
+document.addEventListener('keypress', e => {
+  console.log(e.keyCode);
+  if(e.keyCode == 114) {
+    restart();
+  }  
+});
+function restart() {
+  round.reset();
+  frameCount = 0;
+}
