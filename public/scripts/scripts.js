@@ -17,6 +17,8 @@ let interval = 1000 / framesPerSecond;
 let delta;
 let frameCount = 0;
 
+const audio = new Audio("https://cdn.glitch.me/6ce4aea0-7743-4a07-95a4-d9ad63c039f5%2FDream%20Speedrun%20Music.mp3");
+
 function draw() {
   if(round.timer)
     fpsView();
@@ -53,10 +55,15 @@ document.getElementById("updateCoords").onclick = () => {
 };
 
 document.addEventListener('keypress', e => {
-  console.log(e.keyCode);
   if(e.keyCode == 114) {
     restart();
   }  
+});
+audio.addEventListener("canplaythrough", event => {
+  /* the audio is now playable; play it if permissions allow */
+  audio.volume = .5;
+  audio.loop = true;
+  audio.play();
 });
 function restart() {
   round.reset();

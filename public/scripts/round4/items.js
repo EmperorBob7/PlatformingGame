@@ -17,4 +17,6 @@ items4.items["block2"] = new BouncyBlock(350, 500, 100, 25, colors.bounce, ctx);
 items4.items["finish"] = new EndBlock(550, 200, 100, 20, colors.finish, ctx);
 items4.x = 20;
 items4.y = 400;
+
+
 export {items4};

@@ -125,7 +125,7 @@ class Character {
     let y = this.y - Math.abs(this.velocityY) - 15;
     let y2 = this.y + this.height + Math.abs(this.velocityY) + 15;
     return Object.values(this.items).filter(z => {
-      return x < z.x + z.width && x2 > z.x && y < z.y + z.height && y2 > z.y;
+      return !z.collected && x < z.x + z.width && x2 > z.x && y < z.y + z.height && y2 > z.y;
     });
   }
 }

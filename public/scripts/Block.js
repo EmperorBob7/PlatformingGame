@@ -7,12 +7,27 @@ export default class Block {
     this.color = color;
     this.ctx = ctx;
   }
+  
+  toString() {
+    let json = {
+      x: this.x,
+      y: this.y,
+      width: this.width,
+      height: this.height,
+      color: this.color
+    };
+    return JSON.stringify(json);
+  }
 
   update() {
     this.draw();
   }
 
   action(player, side) {
+    //Override this method
+  }
+  
+  reset() {
     //Override this method
   }
 

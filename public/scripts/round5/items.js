@@ -22,4 +22,7 @@ items5.items["block7"] = new BouncyBlock(300, 300, 100, 10, colors.bounce, ctx);
 items5.items["finish"] = new EndBlock(550, 200, 100, 20, colors.finish, ctx);
 items5.x = 20;
 items5.y = 400;
+
+
+
 export {items5};
