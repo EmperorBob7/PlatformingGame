@@ -6,6 +6,20 @@ export class VerticalSlideBlock extends Block {
     this.yGoal = yGoal;
     this.originalY = y;
     this.moving = false;
+    this.originalV = velocityY;
+  }
+  
+  toString() {
+    let json = {
+      x: this.x,
+      y: this.y,
+      width: this.width,
+      height: this.height,
+      color: this.color,
+      goal: this.yGoal,
+      velocity: this.velocityY
+    };
+    return JSON.stringify(json);
   }
 
   update() {
@@ -36,5 +50,11 @@ export class VerticalSlideBlock extends Block {
       this.object.velocityY = this.velocityY;
     }
     this.moving = true;
+  }
+  
+  reset() {
+    this.y = this.originalY;
+    this.moving = false;
+    this.velocityY = this.originalV;
   }
 }

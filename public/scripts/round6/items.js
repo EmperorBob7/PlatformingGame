@@ -21,5 +21,12 @@ items6.items["coin2"] = new Coin(500, 400, 25, 25, colors.coin, ctx, "coin2");
 items6.items["finish"] = new EndBlock(550, 600, 100, 20, colors.finish, ctx);
 
 items6.x = 20;
-items6.y = 400;
+items6.y = 300;
+
+let t = "";
+for(const [k, v] of Object.entries(items6.items)) {
+  t += (k + ": " + v.toString()) + "\n";
+}
+console.log(t);
+
 export {items6};

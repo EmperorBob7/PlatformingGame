@@ -2,10 +2,24 @@ import Block from "./Block.js";
 export class HorizontalSlideBlock extends Block {
   constructor(x, y, width, height, color, ctx, xGoal, velocityX) {
     super(x, y, width, height, color, ctx);
+    this.originalV = velocityX;
     this.velocityX = velocityX;
     this.xGoal = xGoal;
     this.originalX = x;
     this.moving = false;
+  }
+  
+  toString() {
+    let json = {
+      x: this.x,
+      y: this.y,
+      width: this.width,
+      height: this.height,
+      color: this.color,
+      goal: this.xGoal,
+      velocity: this.velocityX
+    };
+    return JSON.stringify(json);
   }
 
   update() {
@@ -33,5 +47,11 @@ export class HorizontalSlideBlock extends Block {
       this.object = player;
     }
     this.moving = true;
+  }
+  
+  reset() {
+    this.x = this.originalX;
+    this.moving = false;
+    this.velocityX = this.originalV;
   }
 }

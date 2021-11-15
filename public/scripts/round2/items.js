@@ -19,4 +19,5 @@ items2.items["block5"] = new HBlock(200, 200, 100, 20, colors.slide, ctx, 400, 2
 items2.items["finish"] = new EndBlock(500, 200, 100, 20, colors.finish, ctx);
 items2.x = 20;
 items2.y = 400;
+
 export {items2};

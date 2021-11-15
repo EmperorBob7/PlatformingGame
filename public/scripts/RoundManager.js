@@ -1,19 +1,59 @@
-import {items1} from "./round1/items.js";
-import {items2} from "./round2/items.js";
-import {items3} from "./round3/items.js";
-import {items4} from "./round4/items.js";
-import {items5} from "./round5/items.js";
-import {items6} from "./round6/items.js";
+import Data from "./levels.js";
+import Block from "./Block.js";
+import {ClingBlock} from "./ClingBlock.js";
+import {EndBlock as EndBlock} from "./EndBlock.js";
+import {ctx} from "./ctx.js";
+import {colors} from "./colors.js";
+import {HorizontalSlideBlock as HBlock} from "./HorizontalSlideBlock.js";
+import {VerticalSlideBlock as VBlock} from "./VerticalSlideBlock.js";
+import {Coin} from "./Coin.js";
+import {BouncyBlock} from "./BouncyBlock.js";
+
 import player from "./Character.js";
 
-const items = [items1, items2, items3, items4, items5, items6];
-//const items = [items5];
+//const items = [items1, items2, items3, items4, items5, items6];
+const items = [];
+const blocks = [];
 
 class Round {
   constructor() {
+    for(const [key, value] of Object.entries(Data)) {
+      items.push(value);
+      let t = {};
+      for(const [k, v] of Object.entries(value.items)) {
+        let type = v.type;
+        switch(type) {
+          case "block":
+            t[k] = (new Block(v.x, v.y, v.width, v.height, v.color, ctx));
+          break;
+          case "cling":
+            t[k] = (new ClingBlock(v.x, v.y, v.width, v.height, v.color, ctx));
+          break;
+          case "bounce":
+            t[k] = (new BouncyBlock(v.x, v.y, v.width, v.height, v.color, ctx));
+          break;
+          case "vertical":
+            t[k] = (new VBlock(v.x, v.y, v.width, v.height, v.color, ctx, v.goal, v.velocity));
+          break;
+          case "horizontal":
+            t[k] = (new HBlock(v.x, v.y, v.width, v.height, v.color, ctx, v.goal, v.velocity));
+          break;
+          case "coin":
+            t[k] = (new Coin(v.x, v.y, v.width, v.height, v.color, ctx, k));
+          break;
+        }
+      }
+      items[items.length-1].items = t;
+    }
     this.reset();
   }
   reset() {
+    for (let i = 0; i < items.length; i++) {
+      for (const [key, value] of Object.entries(items[i].items)) {
+        value.reset();
+      }
+    }
+
     this.max = items.length;
     this.round = 0;
     this.console = document.getElementById("console");
@@ -25,7 +65,7 @@ class Round {
     this.resetCoords();
   }
   increment() {
-    if(this.round + 1 >= this.max) {
+    if (this.round + 1 >= this.max) {
       this.log("There is all for now, thanks for playing.");
       this.timer = false;
       return;
@@ -43,8 +83,7 @@ class Round {
   resetCoords() {
     player.x = items[this.round].x;
     player.y = items[this.round].y;
-    player.items = items[this.round].items;
-    player.velocityY = 0;  
+    player.velocityY = 0;
   }
   log(p) {
     this.console.innerText = p;
