@@ -1,3 +1,5 @@
 Link to game: https://bobplatformer.glitch.me/
 
-Link to this week's progress: https://bobplatformer.glitch.me/create.html
+Link to this week's site: https://bobplatformer.glitch.me/create.html
+
+This week I created a better frame counter for verifying speedruns and am working on a level making page where users can make their own levels and share their codes for others to play. I have mainly been working on the design aspect and will try to do the backend aspect over the break;

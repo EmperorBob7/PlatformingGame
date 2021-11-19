@@ -120,10 +120,12 @@ class Character {
   }
 
   filter() {
-    let x = this.x - this.velocityX - 15;
-    let x2 = this.x + this.width + this.velocityX + 15;
-    let y = this.y - Math.abs(this.velocityY) - 15;
-    let y2 = this.y + this.height + Math.abs(this.velocityY) + 15;
+    if(this.items == undefined)
+      return [];
+    let x = this.x - this.velocityX - 5;
+    let x2 = this.x + this.width + this.velocityX + 5;
+    let y = this.y - Math.abs(this.velocityY) - 5;
+    let y2 = this.y + this.height + Math.abs(this.velocityY) + 5;
     return Object.values(this.items).filter(z => {
       return !z.collected && x < z.x + z.width && x2 > z.x && y < z.y + z.height && y2 > z.y;
     });
