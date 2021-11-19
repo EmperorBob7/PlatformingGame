@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <meta content="Bob's Platformer - Create" property="og:title" />
+    <meta
+      content="This page is where you can create your own level."
+      property="og:description"
+    />
+    <meta
+      content="https://bobplatformer.glitch.me/create.html"
+      property="og:url"
+    />
+    <meta
+      content="https://cdn.discordapp.com/avatars/259841719141531649/4e81971d2fcc0677e7a25e07bffc3998.webp"
+      property="og:image"
+    />
+    <meta content="#43B581" data-react-helmet="true" name="theme-color" />
+    <title>Bob's Based Game</title>
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <span id="console" style="display:none;"><</span>
+    <button id="pullUpMenuButton">Edit</button>
+    <div id="levelManager">
+      <h1>Blocks</h1>
+      <button id="addBlock">Add</button>
+      <h1 id="closeMenu">X</h1>
+      <div id="blocks">
+        <table id="blockTable">
+          <tr>
+            <td>deez1</td>
+            <td>deez2</td>
+            <td>deez3</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div id="stuff">
+      <h2 id="individualFrames"></h2>
+      <h2 id="frames"></h2>
+    </div>
+    <div id="coords">
+      <label>X: </label><input type="number" id="xCoord" /> <label>Y: </label
+      ><input type="number" id="yCoord" />
+      <button id="updateCoords">
+        Update Start Coordinates
+      </button>
+    </div>
+    <script src="./scripts/scripts.js" type="module"></script>
+    <script src="./scripts/create.js" type="module"></script>
+  </body>
+</html>
