@@ -1,4 +1,3 @@
 Link to game: https://bobplatformer.glitch.me/
 
-This week: Added level 6, fixed block glitching from the corners, fixed coin collision, added a "timer" that counts frames instead of seconds.
-Future: Add more levels, add title screen, add leaderboard, mobile controls, make it an app.
+Link to this week's progress: https://bobplatformer.glitch.me/create.html
