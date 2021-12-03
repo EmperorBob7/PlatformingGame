@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <meta content="Bob's Platformer - Create" property="og:title" />
+    <meta
+      content="This page is where you can create your own level."
+      property="og:description"
+    />
+    <meta
+      content="https://bobplatformer.glitch.me/create.html"
+      property="og:url"
+    />
+    <meta
+      content="https://cdn.discordapp.com/avatars/259841719141531649/4e81971d2fcc0677e7a25e07bffc3998.webp"
+      property="og:image"
+    />
+    <meta content="#43B581" data-react-helmet="true" name="theme-color" />
+    <title>Bob's Based Game</title>
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <span id="console" style="display:none;"><</span>
+    <button id="pullUpMenuButton">Edit</button>
+    <div id="levelManager">
+      <h1>Blocks</h1>
+      <button id="addBlock">Add</button>
+      <h1 id="closeMenu">X</h1>
+      <div id="blocks">
+        <table id="blockTable">
+          <colgroup>
+            <col span="1" style="width: 15%;" />
+            <col span="1" style="width: 15%;" />
+            <col span="1" style="width: 35%;" />
+            <col span="1" style="width: 35%;" />
+          </colgroup>
+
+          <tr id="tableHeader">
+            <th>Color</th>
+            <th>ID</th>
+            <th>Coordinates</th>
+            <th>Size</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <div id="blockAdder">
+      <h2>Add Block</h2>
+      <h1 id="closeAdder">X</h1>
+      <table>
+        <tr>
+          <td>ID: </td>
+          <td><input type="text" id ="blockID"/></td>
+        </tr>
+        <tr>
+          <td>X: </td>
+          <td><input type="text" id ="blockX"/></td>
+        </tr>
+        <tr>
+          <td>Y: </td>
+          <td><input type="text" id ="blockY"/></td>
+        </tr>
+        <tr>
+          <td>Width: </td>
+          <td><input type="text" id ="blockW"/></td>
+        </tr>
+        <tr>
+          <td>Height: </td>
+          <td><input type="text" id ="blockH"/></td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="stuff">
+      <h2 id="individualFrames"></h2>
+      <h2 id="frames"></h2>
+    </div>
+    <div id="coords">
+      <label>X: </label><input type="number" id="xCoord" /> <label>Y: </label
+      ><input type="number" id="yCoord" />
+      <button id="updateCoords">
+        Update Start Coordinates
+      </button>
+    </div>
+    <script src="./scripts/create.js" type="module"></script>
+  </body>
+</html>

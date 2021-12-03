@@ -1,4 +1,4 @@
-Link to game: https://bobplatformer.glitch.me/
+Link to this week's site: https://bobplatformer.glitch.me/create.html
 
-This week: Added level 6, fixed block glitching from the corners, fixed coin collision, added a "timer" that counts frames instead of seconds.
-Future: Add more levels, add title screen, add leaderboard, mobile controls, make it an app.
+This week I updated the UI design of the block manager and added JS to render the blocks the player has added.
+I am also working on the screen for them to actually add blocks and will add a feature to export maps as well.

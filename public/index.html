@@ -5,23 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="https://glitch.com/favicon.ico" />
     <meta content="Bob's Platformer" property="og:title" />
-    <meta content="A game made by a dying Computer Science and Physics student.
+    <meta
+      content="A game made by a dying Computer Science and Physics student.
 The collisions are pretty wack but I hope you enjoy.
-Controls: WASD, R to Restart" property="og:description" />
+Controls: WASD, R to Restart"
+      property="og:description"
+    />
     <meta content="https://bobplatformer.glitch.me/" property="og:url" />
-    <meta content="https://cdn.discordapp.com/avatars/259841719141531649/4e81971d2fcc0677e7a25e07bffc3998.webp" property="og:image" />
+    <meta
+      content="https://cdn.discordapp.com/avatars/259841719141531649/4e81971d2fcc0677e7a25e07bffc3998.webp"
+      property="og:image"
+    />
     <meta content="#43B581" data-react-helmet="true" name="theme-color" />
-    <title>Game</title>
+    <title>Bob's Based Game</title>
 
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <canvas id="canvas"></canvas>
     <span id="console">Use WASD to move</span>
-    <h2 id="fps"></h2>
-    <div style="display:none;">
-      <label>X: </label><input type="number" id="xCoord"/>
-      <label>Y: </label><input type="number" id="yCoord"/>
+    <div id="stuff">
+      <h2 id="individualFrames"></h2>
+      <h2 id="frames"></h2>
+    </div>
+    <div style="display:none;" id="coords">
+      <label>X: </label><input type="number" id="xCoord" /> <label>Y: </label
+      ><input type="number" id="yCoord" />
       <button id="updateCoords">
         Update Coords
       </button>

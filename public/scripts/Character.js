@@ -24,9 +24,8 @@ class Character {
     this.jumpVelocity = -10;
   }
 
-  update() {
+  collision() {
     let ground, ceiling, leftWall, rightWall;
-    if (map[keys.RIGHT] || map[keys.LEFT]) this.velocityX = 4.1;
 
     const items = this.filter();
     for (const value of items) {
@@ -35,31 +34,27 @@ class Character {
           ground = value;
         }
       } else if (value.collidesTop(this, this.velocityY)) {
-        if (value.id)
-          value.action(this);
-        else
-          ground = value;
+        if (value.id) value.action(this);
+        else ground = value;
       }
       if (value.collidesBottom(this, this.velocityY)) {
-        if (value.id)
-          value.action(this);
-        else
-          ceiling = value;
+        if (value.id) value.action(this);
+        else ceiling = value;
       }
       if (value.collidesLeft(this, this.velocityX)) {
-        if (value.id)
-          value.action(this);
-        else
-          rightWall = value;
+        if (value.id) value.action(this);
+        else rightWall = value;
       }
       if (value.collidesRight(this, this.velocityX)) {
-        if (value.id)
-          value.action(this);
-        else
-          leftWall = value;
+        if (value.id) value.action(this);
+        else leftWall = value;
       }
     }
 
+    return [ground, ceiling, leftWall, rightWall];
+  }
+  
+  movement(ground, ceiling, leftWall, rightWall) {
     if (ground && ceiling && ground.velocityY != null) {
       ground.velocityY *= -1;
     }
@@ -71,8 +66,8 @@ class Character {
       let t2 = ground.action(this, "top");
       if (!t2) {
         this.velocityY = 0;
-      } else if(t2 == "finish") {
-        return;
+      } else if (t2 == "finish") {
+        return true;
       }
       this.y = ground.y - this.height;
       if (map[keys.UP]) {
@@ -109,6 +104,16 @@ class Character {
       }
       this.x = leftWall.x - this.width;
     }
+  }
+
+  update() {
+    if (map[keys.RIGHT] || map[keys.LEFT]) this.velocityX = 4.1;
+
+    let [] = this.collision();
+    if(this.movement(...this.collision())) {
+      return;
+    }
+    
     this.draw();
     this.y += this.velocityY;
     this.velocityX = 0;
@@ -120,12 +125,20 @@ class Character {
   }
 
   filter() {
-    let x = this.x - this.velocityX - 15;
-    let x2 = this.x + this.width + this.velocityX + 15;
-    let y = this.y - Math.abs(this.velocityY) - 15;
-    let y2 = this.y + this.height + Math.abs(this.velocityY) + 15;
+    if (this.items == undefined) return [];
+    let d = 5;
+    let x = this.x - this.velocityX - d;
+    let x2 = this.x + this.width + this.velocityX + d;
+    let y = this.y - Math.abs(this.velocityY) - d;
+    let y2 = this.y + this.height + Math.abs(this.velocityY) + d;
     return Object.values(this.items).filter(z => {
-      return !z.collected && x < z.x + z.width && x2 > z.x && y < z.y + z.height && y2 > z.y;
+      return (
+        !z.collected &&
+        x < z.x + z.width &&
+        x2 > z.x &&
+        y < z.y + z.height &&
+        y2 > z.y
+      );
     });
   }
 }

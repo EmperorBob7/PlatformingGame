@@ -1,45 +1,146 @@
 * {
-	margin:0;
-	padding:0;
+  margin: 0;
+  padding: 0;
 }
 body {
-	background-color:#222233;
-	font-family:Arial;
+  background-color: #222233;
+  font-family: Arial;
   position: relative;
   display: grid;
   justify-content: center;
   text-align: center;
-  align-items:center;
-  grid-template:"canvas"
+  align-items: center;
+  grid-template:
+    "canvas"
     "console"
     "inputs";
   color: #ddd;
   height: 100vh;
 }
 canvas {
-	background-color:#0088BB;
-  border:2px solid #ccc;
+  background-color: #0088BB;
+  border: 2px solid #ccc;
   margin: 10px;
-  grid-area:canvas;
+  grid-area: canvas;
 }
-h2 {
+#stuff {
   position: absolute;
   left: 0;
   bottom: 0;
 }
-div {
-  grid-area:inputs;
+#coords {
+  grid-area: inputs;
 }
 button {
-  background-color: white;
+  background-color: #27c498;
   border: 1px solid black;
   padding: 2px;
 }
 #console {
   font-size: 150%;
-  background-color:#444455;
+  background-color: #444455;
   width: 700px;
-  grid-area:console;
+  grid-area: console;
   padding: 5px;
   box-sizing: border-box;
+}
+#levelManager,
+#blockAdder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #212423;
+  padding: 5px;
+  color: #eee;
+  border: 3px solid black;
+  width: 75vw;
+  height: 75vh;
+  margin: 0;
+  max-width: 75vw;
+  max-height: 75vh;
+
+  display: none;
+  grid-template:
+    "add h1 x"
+    "blocks blocks blocks";
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 5% 90%;
+  grid-gap: 5% 0%;
+
+  user-select: none;
+}
+#blocks {
+  overflow-y: scroll;
+  max-height: 70vh;
+  grid-area: blocks;
+  scrollbar-color: #27c498 #222;
+  scrollbar-width: thin;
+  scrollbar-radius: 10px;
+}
+#pullUpMenuButton {
+  padding: 5px;
+}
+#levelManager,
+h1 {
+  grid-area: h1;
+}
+#closeMenu,
+#closeAdder {
+  grid-area: x;
+}
+#addBlock {
+  grid-area: add;
+  font-size: 110%;
+}
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid #eee;
+}
+
+#blockTable tbody tr:nth-child(n + 2) {
+  border: 2px solid black;
+  line-height: 3vh;
+}
+
+#blockTable tbody tr:nth-child(n + 2) td {
+  padding: 1.5vh;
+}
+
+#tableHeader {
+  line-height: 5vh;
+  font-size: 120%;
+}
+#blockAdder {
+  width: 50vw;
+  height: 50vh;
+  display: none;
+  padding: 5vh;
+  font-size: 120%;
+
+  grid-template:
+    ". h2 x"
+    ". form .";
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 5% 90%;
+  grid-gap: 5% 0%;
+}
+#blockAdder table {
+  width: 70%;
+  grid-area: form;
+}
+#blockAdder table tr td {
+  padding-bottom: 1em;
+}
+#blockAdder table tr td:first-child {
+  text-align: left;
+}
+#blockAdder table tr td input {
+  width: 100%;
+}
+h2 {
+  grid-area: h2;
 }
