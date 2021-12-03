@@ -2,11 +2,11 @@ const colors = {
   "block": "#aa0000",
   "grass": "#00BB00",
   "floor": "#964B00",
-  "slide": "green",
-  "bounce": "lime",
+  "slide": "#00ff00",
+  "bounce": "#00FF00",
   "finish": "#FFD700",
-  "cling": "white",
-  "wall": "#333",
-  "coin": "yellow"
+  "cling": "#ffffff",
+  "wall": "#333333",
+  "coin": "#FFFF00"
 };
 export {colors};

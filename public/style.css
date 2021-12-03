@@ -44,16 +44,15 @@ button {
   padding: 5px;
   box-sizing: border-box;
 }
-#levelManager {
+#levelManager,
+#blockAdder {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #212423;
   padding: 5px;
-  color: #fefefe;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  color: #eee;
   border: 3px solid black;
   width: 75vw;
   height: 75vh;
@@ -68,13 +67,14 @@ button {
   grid-template-columns: 20% 60% 20%;
   grid-template-rows: 5% 90%;
   grid-gap: 5% 0%;
-}
 
+  user-select: none;
+}
 #blocks {
   overflow-y: scroll;
   max-height: 70vh;
   grid-area: blocks;
-  scrollbar-color: #222 #27c498;
+  scrollbar-color: #27c498 #222;
   scrollbar-width: thin;
   scrollbar-radius: 10px;
 }
@@ -85,13 +85,62 @@ button {
 h1 {
   grid-area: h1;
 }
-#closeMenu {
-  grid-area:x;
+#closeMenu,
+#closeAdder {
+  grid-area: x;
 }
 #addBlock {
   grid-area: add;
   font-size: 110%;
 }
 table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 1px solid #eee;
+}
+
+#blockTable tbody tr:nth-child(n + 2) {
+  border: 2px solid black;
+  line-height: 3vh;
+}
+
+#blockTable tbody tr:nth-child(n + 2) td {
+  padding: 1.5vh;
+}
+
+#tableHeader {
+  line-height: 5vh;
+  font-size: 120%;
+}
+#blockAdder {
+  width: 50vw;
+  height: 50vh;
+  display: none;
+  padding: 5vh;
+  font-size: 120%;
+
+  grid-template:
+    ". h2 x"
+    ". form .";
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 5% 90%;
+  grid-gap: 5% 0%;
+}
+#blockAdder table {
+  width: 70%;
+  grid-area: form;
+}
+#blockAdder table tr td {
+  padding-bottom: 1em;
+}
+#blockAdder table tr td:first-child {
+  text-align: left;
+}
+#blockAdder table tr td input {
   width: 100%;
+}
+h2 {
+  grid-area: h2;
 }

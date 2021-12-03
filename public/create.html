@@ -32,14 +32,50 @@
       <h1 id="closeMenu">X</h1>
       <div id="blocks">
         <table id="blockTable">
-          <tr>
-            <td>deez1</td>
-            <td>deez2</td>
-            <td>deez3</td>
+          <colgroup>
+            <col span="1" style="width: 15%;" />
+            <col span="1" style="width: 15%;" />
+            <col span="1" style="width: 35%;" />
+            <col span="1" style="width: 35%;" />
+          </colgroup>
+
+          <tr id="tableHeader">
+            <th>Color</th>
+            <th>ID</th>
+            <th>Coordinates</th>
+            <th>Size</th>
           </tr>
         </table>
       </div>
     </div>
+
+    <div id="blockAdder">
+      <h2>Add Block</h2>
+      <h1 id="closeAdder">X</h1>
+      <table>
+        <tr>
+          <td>ID: </td>
+          <td><input type="text" id ="blockID"/></td>
+        </tr>
+        <tr>
+          <td>X: </td>
+          <td><input type="text" id ="blockX"/></td>
+        </tr>
+        <tr>
+          <td>Y: </td>
+          <td><input type="text" id ="blockY"/></td>
+        </tr>
+        <tr>
+          <td>Width: </td>
+          <td><input type="text" id ="blockW"/></td>
+        </tr>
+        <tr>
+          <td>Height: </td>
+          <td><input type="text" id ="blockH"/></td>
+        </tr>
+      </table>
+    </div>
+
     <div id="stuff">
       <h2 id="individualFrames"></h2>
       <h2 id="frames"></h2>
@@ -51,7 +87,6 @@
         Update Start Coordinates
       </button>
     </div>
-    <script src="./scripts/scripts.js" type="module"></script>
     <script src="./scripts/create.js" type="module"></script>
   </body>
 </html>
