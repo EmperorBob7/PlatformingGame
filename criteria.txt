@@ -1,5 +1,4 @@
-Link to game: https://bobplatformer.glitch.me/
-
 Link to this week's site: https://bobplatformer.glitch.me/create.html
 
-This week I created a better frame counter for verifying speedruns and am working on a level making page where users can make their own levels and share their codes for others to play. I have mainly been working on the design aspect and will try to do the backend aspect over the break;
+This week I updated the UI design of the block manager and added JS to render the blocks the player has added.
+I am also working on the screen for them to actually add blocks and will add a feature to export maps as well.
