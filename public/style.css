@@ -44,8 +44,7 @@ button {
   padding: 5px;
   box-sizing: border-box;
 }
-#levelManager,
-#blockAdder {
+#levelManager {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -53,7 +52,7 @@ button {
   background-color: #212423;
   padding: 5px;
   color: #eee;
-  border: 3px solid black;
+  border: 3px solid #555;
   width: 75vw;
   height: 75vh;
   margin: 0;
@@ -86,7 +85,8 @@ h1 {
   grid-area: h1;
 }
 #closeMenu,
-#closeAdder {
+#closeAdder,
+#closePrompt {
   grid-area: x;
 }
 #addBlock {
@@ -115,18 +115,24 @@ table {
   font-size: 120%;
 }
 #blockAdder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #212423;
+  color: #eee;
   width: 50vw;
   height: 50vh;
   display: none;
   padding: 5vh;
   font-size: 120%;
+  border: 3px solid #555;
 
   grid-template:
     ". h2 x"
-    ". form .";
+    ". form ."
+    ". complete .";
   grid-template-columns: 20% 60% 20%;
-  grid-template-rows: 5% 90%;
-  grid-gap: 5% 0%;
 }
 #blockAdder table {
   width: 70%;
@@ -138,9 +144,56 @@ table {
 #blockAdder table tr td:first-child {
   text-align: left;
 }
-#blockAdder table tr td input {
+#blockAdder table tr td input, #blockAdder table tr td select {
   width: 100%;
+  border: 1px solid black;
+  padding: 2px;
+  box-sizing: border-box;
+  background-color: "#efefef";
 }
 h2 {
   grid-area: h2;
+}
+#completeButton {
+  grid-area: complete;
+  padding: 5px;
+}
+#prompt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #212423;
+  color: #eee;
+  width: 50vw;
+  height: 50vh;
+  display: none;
+  padding: 5vh;
+  font-size: 120%;
+  border: 3px solid #555;
+  grid-template:
+    ". h2 x"
+    ". form ."
+    ". submit .";
+  grid-template-rows: 20% 70% 10%;
+}
+#promptForm {
+  grid-area: form;
+  border-top: 1px solid #eee;
+  padding: 15px;
+  box-sizing: border-box;
+}
+#promptSubmit {
+  grid-area: submit;
+}
+#promptLabel {
+  padding-bottom: 10px;
+  display: inline-block;
+}
+#promptInput {
+  background-color: #eee;
+  width: 100%;
+  border: 2px solid #111;
+  height: 50%;
+  resize: none;
 }

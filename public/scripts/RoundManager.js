@@ -11,7 +11,6 @@ import { BouncyBlock } from "./BouncyBlock.js";
 import * as frameUpdate from "./scripts.js";
 import player from "./Character.js";
 
-//const items = [items1, items2, items3, items4, items5, items6];
 let items = [];
 let times = [];
 

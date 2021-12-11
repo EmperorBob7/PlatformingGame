@@ -1,4 +1,7 @@
-Link to this week's site: https://bobplatformer.glitch.me/create.html
+Links for this week:
+https://bobplatformer.glitch.me/play.html
+https://bobplatformer.glitch.me/create.html
 
-This week I updated the UI design of the block manager and added JS to render the blocks the player has added.
-I am also working on the screen for them to actually add blocks and will add a feature to export maps as well.
+This week I updated the UI to fit screens better (still not perfect) and updated the server code to allow the compression and decompression of JSON to share levels more easily.
+Speaking of levels it's possible to share them and load them now.
+I still need to fix the level creator feature but it shouldn't be a big issue.
