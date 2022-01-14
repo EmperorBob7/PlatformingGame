@@ -2,6 +2,4 @@ Links for this week:
 https://bobplatformer.glitch.me/play.html
 https://bobplatformer.glitch.me/create.html
 
-This week I updated the UI to fit screens better (still not perfect) and updated the server code to allow the compression and decompression of JSON to share levels more easily.
-Speaking of levels it's possible to share them and load them now.
-I still need to fix the level creator feature but it shouldn't be a big issue.
+This week there was no updates code-wise for this project, but I have been studying better UI design on various types of websites and am planning on revamping the color scheme of the game to possibly include image textures.
