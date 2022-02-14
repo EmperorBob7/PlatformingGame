@@ -23,12 +23,13 @@ export class HorizontalSlideBlock extends Block {
   }
 
   update() {
-    if (this.x == this.xGoal) {
+    if (this.originalX > this.xGoal && this.x <= this.xGoal || this.originalX < this.xGoal && this.x >= this.xGoal) {
       this.velocityX *= -1;
     }
-    if (this.x == this.originalX && this.moving) {
+    if ((this.originalX > this.xGoal && this.x >= this.originalX || this.originalX < this.xGoal && this.x <= this.originalX) && this.moving) {
       this.moving = false;
-      this.velocityX *= -1;
+      this.x = this.originalX;
+      this.velocityX = this.originalV;
     }
     if (this.moving) {
       if (this.collidesTop(this.object, this.object.velocityY)) {

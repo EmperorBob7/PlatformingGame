@@ -24,19 +24,23 @@ export class VerticalSlideBlock extends Block {
 
   update() {
     let deez = false;
-    if (Math.abs(this.yGoal - this.y) <= Math.abs(this.velocityY)) {
+    if (this.moving && Math.abs(this.yGoal - this.y) <= Math.abs(this.velocityY)) {
       this.velocityY *= -1;
+      this.y += this.velocityY;
       deez = true;
     }
-    if (this.y == this.originalY && this.moving) {
+    if(this.moving && (this.yGoal > this.originalY && this.y <= this.originalY || this.yGoal < this.originalY && this.y >= this.originalY)) {
+      this.y = this.originalY;
       this.moving = false;
-      this.velocityY *= -1;
+      deez = true;
+      this.velocityY = this.originalV;
     }
     if (this.moving) {
       if (this.collidesTop(this.object, this.object.velocityY) && !deez) {
         this.object.velocityY = this.velocityY;
       }
-      this.y += this.velocityY;
+      if(!deez)
+        this.y += this.velocityY;
     }
     this.draw();
   }
@@ -50,6 +54,7 @@ export class VerticalSlideBlock extends Block {
       this.object.velocityY = this.velocityY;
     }
     this.moving = true;
+    return true;  
   }
   
   reset() {

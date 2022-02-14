@@ -1,9 +1,9 @@
 export default {
   level1: {
     items: {
-      grass: { x: 0, y: 600, width: 700, height: 25, color: "#00BB00" , type:"block"},
-      floor: {"x":0,"y":625,"width":700,"height":75,"color":"#964B00", type:"block"},
-      b1: {"x":150,"y":500,"width":100,"height":25,"color":"#aa0000", type:"block"},
+      grass: { x: 0, y: 600, width: 700, height: 25, color: "#00BB00" , type:"block", texture:"Dirt"},
+      floor: {"x":0,"y":625,"width":700,"height":75,"color":"#964B00", type:"block", texture:"Dirt"},
+      b1: {"x":150,"y":500,"width":100,"height":25,"color":"#aa0000", type:"block", texture:"Grass"},
       b2: {"x":300,"y":450,"width":75,"height":25,"color":"#aa0000", type:"block"},
       b3: {"x":400,"y":400,"width":50,"height":25,"color":"#aa0000", type:"block"},
       finish: {"x":500,"y":350,"width":100,"height":15,"color":"#FFD700", type:"finish"}

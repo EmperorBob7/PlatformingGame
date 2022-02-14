@@ -40,7 +40,7 @@ app.post("/decompress", (req, res) => {
     const data = req.body;
     let decompressed = decompress(data);
     res.json(decompressed);
-  } catch(e) {
+  } catch (e) {
     res.error("Invalid Data");
   }
 });

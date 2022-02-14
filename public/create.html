@@ -56,7 +56,7 @@
       <table>
         <tr>
           <td>ID:</td>
-          <td><input type="text" id="blockID" /></td>
+          <td><input type="text" id="blockID" autocomplete="off"/></td>
         </tr>
         <tr>
           <td>X:</td>
@@ -78,10 +78,18 @@
           <td>Color:</td>
           <td><input type="color" id="blockC" /></td>
         </tr>
+        <tr id="velocityRow" style="display: none;">
+          <td>Velocity:</td>
+          <td><input type="number" id="blockV" /></td>
+        </tr>
+        <tr id="goalRow" style="display: none;">
+          <td>Goal:</td>
+          <td><input type="number" id="blockG" /></td>
+        </tr>
         <tr>
           <td>Type:</td>
           <td>
-            <select id="blockType" name="List of Block Types">
+            <select id="blockType" name="List of Block Types" autocomplete="off">
               <option value="block" selected="selected">Block</option>
               <option value="cling">Cling</option>
               <option value="bounce">Bounce</option>
@@ -96,6 +104,8 @@
 
       <button id="completeButton">Complete</button>
     </div>
+      
+      
       
     <div id="prompt">
       <h2>Prompt</h2>
