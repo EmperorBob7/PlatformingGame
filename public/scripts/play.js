@@ -41,7 +41,7 @@ function update() {
 }
 
 async function importData() {
-  let input = prompt("Enter the JSON Data:");
+  let input = document.getElementById("promptInput").value;
   const settings = {
     method: "POST",
     headers: {
@@ -60,7 +60,17 @@ async function importData() {
     alert("Invalid Data");
   }
 }
-
 document.getElementById("decompress").addEventListener("click", () => {
+  document.getElementById("prompt").style.display = "grid";
+  document.getElementById("promptLabel").innerText = "Enter the code";
+  document.getElementById("promptInput").value = "";
+});
+
+document.getElementById("closePrompt").addEventListener("click", () => {
+  document.getElementById("prompt").style.display = "none";
+});
+
+document.getElementById("promptSubmit").addEventListener("click", () => {
+  document.getElementById("prompt").style.display = "none";
   importData();
 });

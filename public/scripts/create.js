@@ -96,11 +96,32 @@ function updateTable() {
     tr.appendChild(del);
 
     tr.addEventListener("click", () => {
-      console.log("sus");
+      let info = data.level1.items[key];
+      if (info) {
+        fillInput(info, key);
+      }
     });
 
     table.appendChild(tr);
   }
+}
+
+function fillInput(d, id) {
+  document.getElementById("blockID").value = id;
+  document.getElementById("blockX").value = d.x;
+  document.getElementById("blockY").value = d.y;
+  document.getElementById("blockW").value = d.width;
+  document.getElementById("blockH").value = d.height;
+  document.getElementById("blockC").value = d.color;
+  document.getElementById("blockType").value = d.type;
+  if (d.velocity) {
+    document.getElementById("blockV").value = d.velocity;
+    document.getElementById("blockG").value = d.goal;
+  } else {
+    document.getElementById("blockV").value = "";
+    document.getElementById("blockG").value = "";
+  }
+  document.getElementById("blockAdder").style.display = "grid";
 }
 
 function hexToRgb(hex) {
@@ -191,6 +212,17 @@ document.getElementById("updateCoords").onclick = () => {
 };
 
 document.getElementById("addBlock").addEventListener("click", () => {
+  document.getElementById("blockID").value = "";
+  document.getElementById("blockX").value = "";
+  document.getElementById("blockY").value = "";
+  document.getElementById("blockW").value = "";
+  document.getElementById("blockH").value = "";
+  document.getElementById("blockC").value = "#000000";
+  document.getElementById("blockType").value = "block";
+  document.getElementById("blockV").value = "";
+  document.getElementById("blockG").value = "";
+  document.getElementById("velocityRow").style.display = "none";
+  document.getElementById("goalRow").style.display = "none";
   document.getElementById("blockAdder").style.display = "grid";
 });
 
@@ -203,14 +235,29 @@ document.getElementById("completeButton").addEventListener("click", () => {
   let h = document.getElementById("blockH").value;
   let c = document.getElementById("blockC").value;
   let t = document.getElementById("blockType").value;
+  let v = document.getElementById("blockV").value;
+  let g = document.getElementById("blockG").value;
   data.level1.items[id] = {
     x: Number(x),
     y: Number(y),
     width: Number(w),
     height: Number(h),
     color: c,
-    type: t
+    type: t,
+    velocity: Number(v),
+    goal: Number(g)
   };
   update();
   updateTable();
+});
+
+document.getElementById("blockType").addEventListener("change", () => {
+  let t = document.getElementById("blockType").value;
+  if (t == "horizontal" || t == "vertical") {
+    document.getElementById("velocityRow").style.display = "";
+    document.getElementById("goalRow").style.display = "";
+  } else {
+    document.getElementById("velocityRow").style.display = "none";
+    document.getElementById("goalRow").style.display = "none";
+  }
 });

@@ -1,20 +1,24 @@
 export default class Block {
-  constructor(x, y, width, height, color, ctx) {
+  constructor(x, y, width, height, color, ctx, texture) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
     this.color = color;
     this.ctx = ctx;
+    console.log(texture);
+    if (texture) {
+      this.texture = texture;
+    }
   }
-  
+
   toString() {
     let json = {
       x: this.x,
       y: this.y,
       width: this.width,
       height: this.height,
-      color: this.color
+      color: this.color,
     };
     return JSON.stringify(json);
   }
@@ -26,14 +30,20 @@ export default class Block {
   action(player, side) {
     //Override this method
   }
-  
+
   reset() {
     //Override this method
   }
 
   draw() {
-    this.ctx.fillStyle = this.color;
-    this.ctx.fillRect(this.x, this.y, this.width, this.height);
+    if (this.texture) {
+      this.ctx.fillStyle = this.texture;
+      this.ctx.rect(this.x, this.y, this.width, this.height);
+      this.ctx.fill();
+    } else {
+      this.ctx.fillStyle = this.color;
+      this.ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
   }
 
   collidesTop(other, speed) {

@@ -122,7 +122,7 @@ table {
   background-color: #212423;
   color: #eee;
   width: 50vw;
-  height: 50vh;
+  height: 75vh;
   display: none;
   padding: 5vh;
   font-size: 120%;
@@ -133,10 +133,12 @@ table {
     ". form ."
     ". complete .";
   grid-template-columns: 20% 60% 20%;
+  grid-template-rows: 10% 85% 5%;
 }
 #blockAdder table {
   width: 70%;
   grid-area: form;
+  height: 100%;
 }
 #blockAdder table tr td {
   padding-bottom: 1em;
@@ -149,7 +151,7 @@ table {
   border: 1px solid black;
   padding: 2px;
   box-sizing: border-box;
-  background-color: "#efefef";
+  background-color: #efefef;
 }
 h2 {
   grid-area: h2;
@@ -175,7 +177,7 @@ h2 {
     ". h2 x"
     ". form ."
     ". submit .";
-  grid-template-rows: 20% 70% 10%;
+  grid-template-rows: 10% 80% 10%;
 }
 #promptForm {
   grid-area: form;
@@ -194,6 +196,9 @@ h2 {
   background-color: #eee;
   width: 100%;
   border: 2px solid #111;
-  height: 50%;
+  height: 90%;
   resize: none;
+  outline: none;
+  padding: 5px;
+  box-sizing: border-box;
 }
