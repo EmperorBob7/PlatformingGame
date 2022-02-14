@@ -2,4 +2,4 @@ Links for this week:
 https://bobplatformer.glitch.me/play.html
 https://bobplatformer.glitch.me/create.html
 
-This week there was no updates code-wise for this project, but I have been studying better UI design on various types of websites and am planning on revamping the color scheme of the game to possibly include image textures.
+As this week was almost entirely for the card game project, little progress was made on this project, but I did alter the way I was creating textures to use less storage, but it still doesn't work just like before. I'm not quite sure where the issue is arising.
