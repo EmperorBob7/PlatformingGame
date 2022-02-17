@@ -29,6 +29,7 @@ app.post("/compress", (req, res) => {
   try {
     const data = req.body;
     let compressed = compress(data);
+    console.log(compressed);
     res.json(compressed);
   } catch (e) {
     res.error("Invalid Data");
@@ -36,6 +37,7 @@ app.post("/compress", (req, res) => {
 });
 
 app.post("/decompress", (req, res) => {
+  console.log("stuff",req.body);
   try {
     const data = req.body;
     let decompressed = decompress(data);

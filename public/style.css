@@ -36,6 +36,10 @@ button {
   border: 1px solid black;
   padding: 2px;
 }
+#decompress {
+  text-align:center;
+  margin: auto;
+}
 #console {
   font-size: 150%;
   background-color: #444455;
@@ -43,6 +47,7 @@ button {
   grid-area: console;
   padding: 5px;
   box-sizing: border-box;
+  margin: auto;
 }
 #levelManager {
   position: absolute;

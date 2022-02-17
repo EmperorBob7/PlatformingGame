@@ -7,7 +7,7 @@ function log(x) {
 }
 const img = new Image();
 img.src =
-  "https://www.imagenspng.com.br/wp-content/uploads/2020/10/among-us-red-png-01.png";
+  "https://cdn.glitch.me/6ce4aea0-7743-4a07-95a4-d9ad63c039f5%2FUntitled.png?v=1635355930614";
 
 class Character {
   constructor(x, y, width, height, ctx, items) {

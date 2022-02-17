@@ -14,7 +14,7 @@ let data = {
         width: 700,
         height: 25,
         color: "#00BB00",
-        type: "block"
+        type: "block",
       },
       floor: {
         x: 0,
@@ -22,14 +22,14 @@ let data = {
         width: 700,
         height: 75,
         color: "#964B00",
-        type: "block"
-      }
+        type: "block",
+      },
     },
     x: 20,
     y: 400,
     text: "Have Fun",
-    coins: 0
-  }
+    coins: 0,
+  },
 };
 
 update();
@@ -82,7 +82,7 @@ function updateTable() {
     const d = document.createElement("h2");
     d.innerText = "X";
     d.classList.add("deleteBlock");
-    d.addEventListener("click", y => {
+    d.addEventListener("click", (y) => {
       delete data.level1.items[key];
       update();
       updateTable();
@@ -130,7 +130,7 @@ function hexToRgb(hex) {
     ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
+        b: parseInt(result[3], 16),
       }
     : null;
 }
@@ -140,17 +140,28 @@ async function compressData() {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   };
   const fetchResponse = await fetch("/compress", settings);
   const d = await fetchResponse.json();
   if (fetchResponse.ok) {
-    alert(JSON.stringify(d));
+    save(JSON.stringify(d));
   } else {
     alert("Data is invalid.");
   }
+}
+
+function save(text) {
+  var c = document.createElement("a");
+  c.download = "BobPlatFormerLevel.bob";
+
+  var t = new Blob([text], {
+    type: "text/plain",
+  });
+  c.href = window.URL.createObjectURL(t);
+  c.click();
 }
 
 async function importData() {
@@ -158,9 +169,9 @@ async function importData() {
     method: "POST",
     headers: {
       Accept: "application/json",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
-    body: document.getElementById("promptInput").value
+    body: document.getElementById("promptInput").value,
   };
   try {
     const fetchResponse = await fetch("/decompress", settings);
@@ -245,7 +256,7 @@ document.getElementById("completeButton").addEventListener("click", () => {
     color: c,
     type: t,
     velocity: Number(v),
-    goal: Number(g)
+    goal: Number(g),
   };
   update();
   updateTable();
