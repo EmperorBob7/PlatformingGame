@@ -2,4 +2,6 @@ Links for this week:
 https://bobplatformer.glitch.me/play.html
 https://bobplatformer.glitch.me/create.html
 
-As this week was almost entirely for the card game project, little progress was made on this project, but I did alter the way I was creating textures to use less storage, but it still doesn't work just like before. I'm not quite sure where the issue is arising.
+I'm planning on switching to a different project soon as I'm about as satisfied as I can get in this game aside from not being able to do textures.
+This week I added file downloading and uploading for custom levels which is much more user-friendly.
+I'm planning on making another game that uses animation.
