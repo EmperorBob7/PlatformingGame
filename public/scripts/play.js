@@ -40,8 +40,7 @@ function update() {
   newRound();
 }
 
-async function importData() {
-  let input = document.getElementById("promptInput").value;
+async function importData(input) {
   const settings = {
     method: "POST",
     headers: {
@@ -60,11 +59,19 @@ async function importData() {
     alert("Invalid Data");
   }
 }
-document.getElementById("decompress").addEventListener("click", () => {
-  document.getElementById("prompt").style.display = "grid";
-  document.getElementById("promptLabel").innerText = "Enter the code";
-  document.getElementById("promptInput").value = "";
+document.getElementById("decompress").addEventListener("change", () => {
+  const input = document.getElementById("decompress");
+  const file = input.files.item(0);
+  fileToText(file, importData);
 });
+
+function fileToText(file, callback) {
+  const reader = new FileReader();
+  reader.readAsText(file);
+  reader.onload = () => {
+    callback(reader.result);
+  };
+}
 
 document.getElementById("closePrompt").addEventListener("click", () => {
   document.getElementById("prompt").style.display = "none";

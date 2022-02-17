@@ -10,7 +10,6 @@ import { Coin } from "./Coin.js";
 import { BouncyBlock } from "./BouncyBlock.js";
 import * as frameUpdate from "./scripts.js";
 import player from "./Character.js";
-import textureInit from "./Textures.js";
 
 let items = [];
 let times = [];
@@ -20,8 +19,7 @@ class Round {
     this.Data = Data;
     this.updateArrays();
   }
-  async updateArrays() {
-    let textures = await textureInit();
+  updateArrays() {
     items = [];
     if(this.Data == undefined)
       return;
@@ -32,13 +30,13 @@ class Round {
         let type = v.type;
         switch (type) {
           case "block":
-            t[k] = new Block(v.x, v.y, v.width, v.height, v.color, ctx, textures[v.texture]);
+            t[k] = new Block(v.x, v.y, v.width, v.height, v.color, ctx);
             break;
           case "cling":
-            t[k] = new ClingBlock(v.x, v.y, v.width, v.height, v.color, textures[v.texture]);
+            t[k] = new ClingBlock(v.x, v.y, v.width, v.height, v.color, ctx);
             break;
           case "bounce":
-            t[k] = new BouncyBlock(v.x, v.y, v.width, v.height, v.color, ctx, textures[v.texture]);
+            t[k] = new BouncyBlock(v.x, v.y, v.width, v.height, v.color, ctx);
             break;
           case "vertical":
             t[k] = new VBlock(
@@ -49,8 +47,8 @@ class Round {
               v.color,
               ctx,
               v.goal,
-              v.velocity, 
-              v.texture);
+              v.velocity
+            );
             break;
           case "horizontal":
             t[k] = new HBlock(
@@ -61,15 +59,14 @@ class Round {
               v.color,
               ctx,
               v.goal,
-              v.velocity, 
-              v.texture
+              v.velocity
             );
             break;
           case "coin":
-            t[k] = new Coin(v.x, v.y, v.width, v.height, v.color, ctx, k, textures[v.texture]);
+            t[k] = new Coin(v.x, v.y, v.width, v.height, v.color, ctx, k);
             break;
           case "finish":
-            t[k] = new EndBlock(v.x, v.y, v.width, v.height, v.color, ctx, textures[v.texture]);
+            t[k] = new EndBlock(v.x, v.y, v.width, v.height, v.color, ctx);
             break;
         }
       }
